@@ -1,24 +1,39 @@
-When page is first loaded, cute cat image appears. The cat is holding / playing with her yarn. The yarn rolls away under one of the 3 red cups.
+var allCups = document.querySelectorAll(".cup");
+var ball = document.querySelector(".ball");
+var allCupsArray = [0, 1, 2];
 
-"Help the Kitty find her ball of yarn!"
+//How/Where does the ball move?
+var moveBall = function() {
+    //Select a random cup to cover the ball
+    let selectedCup = allCupsArray[Math.floor(Math.random()*allCupsArray.length)];
 
-Start button - on click, starts the game play
+    //Defining the pixels by which the ball should move
+    if (selectedCup === 1) {
+        ball.style.top = '300px';
+        ball.style.left = '270px';
+    } else if (selectedCup === 2) {
+        ball.style.top = '300px';
+        ball.style.left = '470px';
+    } else {
+        ball.style.top = '300px';
+        ball.style.left = '70px';
+    }
+}
 
-OR
+//Define startGame function
+var startGame = function() {
+    var bringCupsBackDown = function() {
+        for (var i=0; i < allCups.length; i++) {
+        allCups[i].style.top = '0px';
+        };
+    }
+    for (var i=0; i < allCups.length; i++) {
+        allCups[i].style.bottom = '100px';
+    };
+    setTimeout(moveBall, 1000);
+    setTimeout(bringCupsBackDown, 2000);
+};
 
-"Help the Kitty find her ball of yarn!"
-
-Start button - on click, starts the game play, sad kitty (image) in the background. When yarn is found, happy kitty pops up over screen.
-
---===GAME PLAY===--
-
-When "start" button is clicked,
-1. all cups are lifted up
-2. ball goes underneath one of the cups (random)
-3. all cups are lowered back to original position (ball cannot be seen anymore)
-4. cups are shuffled at a set speed
-5. when cups stop shuffling, user should click on the cup that they think holds the ball.
-6a. if the cup that is clicked DOES contain the ball, show happy kitty playing with ball.
-6b. if the cup that is clicked does NOT contain the ball, repeat from step 1.
-
-7. when ball is found, "play again?" button appears. repeat from step 1, except that this time the shuffling speed (as set in step 4) is increased.
+//What to do when 'start' button is clicked:
+var startButton = document.querySelector("button");
+startButton.addEventListener("click", startGame);
