@@ -1,14 +1,27 @@
+html, body {
+    height: 100%;
+}
+
 body {
-    max-width: 600px;
+    max-width: 650px;
     margin: 0 auto;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.game-elements {
+    padding-top: 50px;
 }
 
 .ball {
     width: 60px;
     height: 60px;
     border-radius: 50%;
-
     background-color: #58D9EC;
+    position: relative;
+    left: 70px;
+    top: 300px;
+    z-index: 0;
 }
 
 .cup {
@@ -17,4 +30,10 @@ body {
     border-left: 30px solid transparent;
     border-right: 30px solid transparent;
     float: left;
+    position: relative;
+    z-index: 1;
+}
+
+.cup:active {
+    bottom: 100px;
 }
