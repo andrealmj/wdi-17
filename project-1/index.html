@@ -1,26 +1,77 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 <head>
     <title>Magic Cups</title>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
-<body>
 
+<body id="gameBody">
 
-    <h1>Help the Kitty find her ball of yarn!</h1>
+    <section id="instructions">
+        <h1>Help the Kitty find her ball of yarn!</h1>
+    </section>
 
-    <div class="game-elements">
+    <button>Start</button>
 
+    <section id="gameElements">
         <div class="ball"></div>
 
-        <div class="cup" id="cup0"></div>
-        <div class="cup" id="cup1"></div>
-        <div class="cup" id="cup2"></div>
+        <section id="spotZero">
+            <div class="cup" id="cup0"></div>
+        </section>
 
-    </div>
-    <button>Start</button>
+        <section id="spotOne">
+            <div class="cup" id="cup1"></div>
+        </section>
+
+        <section id="spotTwo">
+            <div class="cup" id="cup2"></div>
+        </section>
+    </section>
 
 <script src="main.js"></script>
 </body>
 </html>
 
+ -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Magic Cups</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+
+  <body id='gamebody'>
+    <section id='instructions'>
+      <h1>Help the Kitty find her ball of yarn!</h1>
+    </section>
+
+    <section id='buttonPosition'>
+        <button>Start</button>
+    </section>
+
+    <section id='wrapper'>
+
+        <div class="ball"></div>
+
+        <section id="cupsSection">
+            <section id='spotZero'>
+            <div class="cup" id="cup0"></div>
+            </section>
+
+            <section id='spotOne'>
+                <div class="cup" id="cup1"></div>
+            </section>
+
+            <section id='spotTwo'>
+                <div class="cup" id="cup2"></div>
+            </section>
+        </section>
+
+    </section>
+
+
+    <script src="main.js"></script>
+  </body>
+</html>

@@ -3,14 +3,16 @@ html, body {
 }
 
 body {
-    max-width: 650px;
+    max-width: 800px;
     margin: 0 auto;
     box-sizing: border-box;
     position: relative;
 }
 
-.game-elements {
-    padding-top: 50px;
+#wrapper {
+    padding-top: 100px;
+    height: 800px;
+    text-align: center;
 }
 
 .ball {
@@ -19,9 +21,16 @@ body {
     border-radius: 50%;
     background-color: #58D9EC;
     position: relative;
-    left: 270px;
+    left: 90px;
     bottom: 30px;
+    z-index: 1;
+}
+
+#cupsSection {
+    height: 700px;
+    position: relative;
     z-index: 0;
+    display: block;
 }
 
 .cup {
@@ -31,11 +40,17 @@ body {
     border-right: 30px solid transparent;
     float: left;
     position: relative;
-    z-index: 1;
+    z-index: 2;
+    align-content: center;
+/*    margin-top: 200px;*/
 }
 
 .cup:active {
     bottom: 100px;
+}
+
+#cup0, #cup1, #cup2 {
+    margin: 0 20px;
 }
 
 button {
@@ -44,4 +59,82 @@ button {
     color: white;
     outline: none;
     padding: 2px 20px;
+}
+
+.swap2With0 {
+    animation: twoToZero;
+    animation-duration: 0.5s;
+    animation-iteration-count: 1;
+    animation-direction: alternate-reverse;
+}
+
+@keyframes twoToZero {
+    0%   {right: 0px;}
+    50%  {right: 200px;}
+    100% {right: 400px;}
+}
+
+.swap0With2 {
+    animation: zeroToTwo;
+    animation-duration: 0.5s;
+    animation-iteration-count: 1;
+    animation-direction: alternate-reverse;
+}
+
+@keyframes zeroToTwo {
+    0%   {left: 0px;}
+    50%  {left: 200px;}
+    100% {left: 400px;}
+}
+
+.swap0With1 {
+    animation: zeroToOne;
+    animation-duration: 0.5s;
+    animation-iteration-count: 1;
+    animation-direction: alternate-reverse;
+}
+
+@keyframes zeroToOne {
+    0%   {left: 0;}
+    50%  {left: 100px;}
+    100% {left: 200px;}
+}
+
+.swap1With0 {
+    animation: oneToZero;
+    animation-duration: 0.5s;
+    animation-iteration-count: 1;
+    animation-direction: alternate-reverse;
+}
+
+@keyframes oneToZero {
+    0%   {right: 0px;}
+    50%  {right: 100px;}
+    100% {right: 300px;}
+}
+
+.swap1With2 {
+    animation: oneToTwo;
+    animation-duration: 0.5s;
+    animation-iteration-count: 1;
+    animation-direction: alternate-reverse;
+}
+
+@keyframes oneToTwo {
+    0%   {left: 0;}
+    50%  {left: 100px;}
+    100% {left: 200px;}
+}
+
+.swap2With1 {
+    animation: twoToOne;
+    animation-duration: 0.5s;
+    animation-iteration-count: 1;
+    animation-direction: alternate-reverse;
+}
+
+@keyframes twoToOne {
+    0%   {right: 0px;}
+    50%  {right: 100px;}
+    100% {right: 200px;}
 }
