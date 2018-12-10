@@ -34,31 +34,34 @@ var moveBall = function() {
 var swap0And2 = function() {
     document.getElementById('cup2').classList.add("swap2With0");
     document.getElementById('cup0').classList.add("swap0With2");
-}
 
-// var animate0To2 = function() {
-//     document.getElementById('cup0').classList.add("swap0With2");
-// }
+    setTimeout(function() {
+        document.getElementById('cup2').classList.remove("swap2With0");
+        document.getElementById('cup0').classList.remove("swap0With2");
+    }, 400)
+}
 
 var swap0And1 = function() {
     document.getElementById('cup0').classList.add("swap0With1");
     document.getElementById('cup1').classList.add("swap1With0");
-}
 
-// var animate1To0 = function() {
-//     document.getElementById('cup1').classList.add("swap1With0");
-// }
+    setTimeout(function() {
+        document.getElementById('cup0').classList.remove("swap0With1");
+        document.getElementById('cup1').classList.remove("swap1With0");
+    }, 400)
+}
 
 var swap1And2 = function() {
     document.getElementById('cup1').classList.add("swap1With2");
     document.getElementById('cup2').classList.add("swap2With1");
+
+    setTimeout(function() {
+        document.getElementById('cup1').classList.remove("swap1With2");
+        document.getElementById('cup2').classList.remove("swap2With1");
+    }, 400)
 }
 
-// var animate2To1 = function() {
-//     document.getElementById('cup2').classList.add("swap2With1");
-// }
-
-//------------------------------------------------//
+//---------------------------------------------------//
 
 
 //Choosing random swap:
@@ -73,27 +76,15 @@ var chooseRandomSwap = function() {
     }
 }
 
-// //Swap cups at random 15 times
-// var randomSwap = function() {
-//     //Swap x = 15 times
-//     let x = 0;
-//     do {
-//         chooseRandomSwap();
-//         x++;
-//         console.log(x)
-//     } if (x > 15) {
-//         clearInterval(randomSwap);
-//     }
-// }
-
+//Swapping the cups randomly i = 15 times (immediately-invoked function expression)
 var randomSwap = function(i) {
 for (let i = 0; i < 15; i++) {
-  (function (i) {
-    setTimeout(function () {
-        chooseRandomSwap();
-        console.log(i)
-    }, 500*i);
-  })(i);
+    (function (i) {
+        setTimeout(function () {
+        chooseRandomSwap(); //run this code
+        console.log(i) //to check if this chunk of code indeed runs 15 times
+    }, 700*i); //the code repeats itself every 700ms
+  })(i); //for a total of i=15 times
 };
 }
 
@@ -108,10 +99,10 @@ var startGame = function() {
     for (var i=0; i < allCups.length; i++) {
         allCups[i].style.bottom = '100px';
     };
-    setTimeout(moveBall, 500);
+    setTimeout(moveBall, 500); //ball moves to randomly-selected cup
     setTimeout(bringCupsBackDown, 1200);
 
-    setTimeout(randomSwap, 1800);
+    setTimeout(randomSwap, 1800); //shuffling of cups starts
 
 };
 
