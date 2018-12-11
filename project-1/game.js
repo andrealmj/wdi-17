@@ -158,9 +158,9 @@ var spotZeroClick = function() {
     console.log("made cup0 transparent");
 
     if (cup0.classList.contains("winner")) {
-        alert("You won! The kitty thanks you.")
+        alert("You won! Pusheen says..")
     } else {
-        alert("Oh no! Kitty is still sad. Try again next time?")
+        alert("Oh no! Pusheen is sad. Try again next time?")
     }
 
     // ball.classList.remove("transparent");
@@ -171,9 +171,9 @@ var spotOneClick = function() {
     console.log("made cup1 transparent");
 
     if (cup1.classList.contains("winner")) {
-        alert("You won! The kitty thanks you.")
+        alert("You won! Pusheen says..")
     } else {
-        alert("Oh no! Kitty is still sad. Try again next time?")
+        alert("Oh no! Pusheen is sad. Try again next time?")
     }
 
     // ball.classList.remove("transparent");
@@ -184,9 +184,9 @@ var spotTwoClick = function() {
     console.log("made cup2 transparent");
 
     if (cup2.classList.contains("winner")) {
-        alert("You won! The kitty thanks you.")
+        alert("You won! Pusheen says..")
     } else {
-        alert("Oh no! Kitty is still sad. Try again next time?")
+        alert("Oh no! Pusheen is sad. Try again next time?")
     }
 
     // ball.classList.remove("transparent");
@@ -211,8 +211,9 @@ var gameInit = function() {
     }
 
     var displayMessage = function() {
-        var clickOnTheCupMsg = document.createTextNode("Click on the cup containing the ball!");
+        var clickOnTheCupMsg = document.createTextNode("Click on the cup containing the donut!");
         h1.replaceChild(clickOnTheCupMsg, h1.childNodes[0]);
+        //MAKE THE TEXT BLINK FOR THE FIRST FEW SECONDS IT APPEARS
     }
 
     var bringCupsUp = function() {
@@ -220,6 +221,8 @@ var gameInit = function() {
             allCups[i].style.bottom = '50px';
         };
     }
+
+    //MAKE THE h1 TEXT BLINK FOR THE FIRST FEW SECONDS IT APPEARS (i.e. first thing tt happens when the pg loads - no setTimeout necessary)
 
     setTimeout(bringCupsUp, 800);
     setTimeout(moveBall, 1300); //ball moves to randomly-selected cup
