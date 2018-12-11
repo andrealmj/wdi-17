@@ -1,77 +1,30 @@
-<!-- <!DOCTYPE html>
-<html>
-<head>
-    <title>Magic Cups</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-</head>
-
-<body id="gameBody">
-
-    <section id="instructions">
-        <h1>Help the Kitty find her ball of yarn!</h1>
-    </section>
-
-    <button>Start</button>
-
-    <section id="gameElements">
-        <div class="ball"></div>
-
-        <section id="spotZero">
-            <div class="cup" id="cup0"></div>
-        </section>
-
-        <section id="spotOne">
-            <div class="cup" id="cup1"></div>
-        </section>
-
-        <section id="spotTwo">
-            <div class="cup" id="cup2"></div>
-        </section>
-    </section>
-
-<script src="main.js"></script>
-</body>
-</html>
-
- -->
-
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Magic Cups</title>
+    <title>Magic Cups - Help Pusheen!</title>
     <link rel="stylesheet" type="text/css" href="style.css">
   </head>
 
-  <body id='gamebody'>
-    <section id='instructions'>
-      <h1>Help the Kitty find her ball of yarn!</h1>
-    </section>
+  <body>
 
-    <section id='buttonPosition'>
-        <button>Start</button>
-    </section>
+    <div class="container">
 
-    <section id='wrapper'>
+        <div id="introScreen">
+            <div id='instructions'>
+                <h1>Help Pusheen find her donut!</h1>
 
-        <div class="ball"><!-- <img src="images/yarn.png"> --></div>
+                <p>Oh no! Pusheen has lost her donut under some cups. Can you help her find it?</p>
 
-        <section id="cupsSection">
-            <section id='spotZero'>
-            <div class="cup" id="cup0"><!-- <p>0</p> --></div>
-            </section>
+                <img src="images/nyancat-donut.gif" class="nyan">
+            </div>
 
-            <section id='spotOne'>
-                <div class="cup" id="cup1"><!-- <p>1</p> --></div>
-            </section>
+            <div id='buttonPosition'>
+                <button type="submit"><a href="game.html">Start</a></button>
+            </div>
 
-            <section id='spotTwo'>
-                <div class="cup" id="cup2"><!-- <p>2</p> --></div>
-            </section>
-        </section>
+        </div>
 
-    </section>
-
-
-    <script src="main.js"></script>
-  </body>
+    <script src="index1.js"></script>
+    </div>
+</body>
 </html>
