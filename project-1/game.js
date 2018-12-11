@@ -1,6 +1,9 @@
 var allCups = document.querySelectorAll(".cup");
 var ball = document.querySelector(".ball");
 var donutImg = document.querySelector(".imgball");
+
+var h1 = document.querySelector("#h1game");
+
 var allCupsArray = [0, 1, 2];
 
 var spotZero = document.getElementById('spotZero');
@@ -140,45 +143,53 @@ var randomSwap = function(i) {
 
 //---------------------------------------------------//
 //What happens when each spot is clicked after the shuffling is complete:
+
+var removeCupImg = function() {
+    var cupImg = document.querySelectorAll(".cup");
+    for (var i=1; i < cupImg.length; i+=2) {
+            cupImg[i].style.bottom = '50px';
+        };
+} //********CHECK TIHS***
+
 //***CREATE POP-UPS FOR WIN/LOSE CONDITION***
 //*delete making ball transparent since now i'm using image
 var spotZeroClick = function() {
-    cup0.classList.add("transparent");
+    removeCupImg();//MAKE THE CUP DISAPPEAR
     console.log("made cup0 transparent");
 
     if (cup0.classList.contains("winner")) {
-        console.log("You won! The kitty thanks you.")
+        alert("You won! The kitty thanks you.")
     } else {
-        console.log("Oh no! Kitty is still sad. Try again next time?")
+        alert("Oh no! Kitty is still sad. Try again next time?")
     }
 
-    ball.classList.remove("transparent");
+    // ball.classList.remove("transparent");
 }
 
 var spotOneClick = function() {
-    cup1.classList.add("transparent");
+    removeCupImg();//MAKE THE CUP DISAPPEAR
     console.log("made cup1 transparent");
 
     if (cup1.classList.contains("winner")) {
-        console.log("You won! The kitty thanks you.")
+        alert("You won! The kitty thanks you.")
     } else {
-        console.log("Oh no! Kitty is still sad. Try again next time?")
+        alert("Oh no! Kitty is still sad. Try again next time?")
     }
 
-    ball.classList.remove("transparent");
+    // ball.classList.remove("transparent");
 }
 
 var spotTwoClick = function() {
-    cup2.classList.add("transparent");
+    removeCupImg();//MAKE THE CUP DISAPPEAR
     console.log("made cup2 transparent");
 
     if (cup2.classList.contains("winner")) {
-        console.log("You won! The kitty thanks you.")
+        alert("You won! The kitty thanks you.")
     } else {
-        console.log("Oh no! Kitty is still sad. Try again next time?")
+        alert("Oh no! Kitty is still sad. Try again next time?")
     }
 
-    ball.classList.remove("transparent");
+    // ball.classList.remove("transparent");
 }
 //---------------------------------------------------//
 
@@ -191,8 +202,17 @@ var gameInit = function() {
         };
     }
 
-    var makeBallTransparent = function() {
-        ball.classList.add("transparent");
+    // var makeBallTransparent = function() {
+    //     ball.classList.add("transparent");
+    // }
+
+    var removeDonutImg = function() {
+        donutImg.parentNode.removeChild(donutImg);
+    }
+
+    var displayMessage = function() {
+        var clickOnTheCupMsg = document.createTextNode("Click on the cup containing the ball!");
+        h1.replaceChild(clickOnTheCupMsg, h1.childNodes[0]);
     }
 
     var bringCupsUp = function() {
@@ -204,13 +224,12 @@ var gameInit = function() {
     setTimeout(bringCupsUp, 800);
     setTimeout(moveBall, 1300); //ball moves to randomly-selected cup
     setTimeout(bringCupsBackDown, 2000);
-    setTimeout(makeBallTransparent, 2000); //makes the ball transparent when the cups fall back down
-    //MAKE DONUTIMG DISAPPEAR (removeElement/Child) WHEN CUPS FALL BACK DOWN*****
-
+    // setTimeout(makeBallTransparent, 2000); //makes the ball transparent when the cups fall back down
+    setTimeout(removeDonutImg, 2000); //makes donut disappear when cups fall back down
 
     setTimeout(randomSwap, 2600); //shuffling of cups starts & ends
 
-    //Insert message for user: "Click on the cup which hides the ball!" (append to h1)
+    setTimeout(displayMessage, 10600);
 
     //Make the cups clickable again
     cup0.addEventListener("click", spotZeroClick);
