@@ -26,6 +26,13 @@ body {
     z-index: 1;
 }
 
+.imgball {
+    max-width: 60px;
+    max-height: 60px;
+    position: relative;
+    z-index: 1;
+}
+
 #cupsSection {
     height: 700px;
     position: relative;
@@ -42,10 +49,21 @@ body {
     position: relative;
     z-index: 2;
     align-content: center;
-/*    margin-top: 200px;*/
+    color: black;
 }
 
-.cup:active {
+.winner {
+    width: 140px;
+    border-bottom: 300px solid blue;
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+    float: left;
+    position: relative;
+    z-index: 2;
+    align-content: center;
+}
+
+.cup:active, #cup0:active, #cup1:active, #cup2:active {
     bottom: 100px;
 }
 
@@ -65,7 +83,7 @@ button {
     animation: twoToZero;
     animation-duration: 0.5s;
     animation-iteration-count: 1;
-    animation-direction: alternate-reverse;
+    animation-direction: normal;
 }
 
 @keyframes twoToZero {
@@ -78,7 +96,7 @@ button {
     animation: zeroToTwo;
     animation-duration: 0.5s;
     animation-iteration-count: 1;
-    animation-direction: alternate-reverse;
+    animation-direction: normal;
 }
 
 @keyframes zeroToTwo {
@@ -91,7 +109,7 @@ button {
     animation: zeroToOne;
     animation-duration: 0.5s;
     animation-iteration-count: 1;
-    animation-direction: alternate-reverse;
+    animation-direction: normal;
 }
 
 @keyframes zeroToOne {
@@ -104,7 +122,7 @@ button {
     animation: oneToZero;
     animation-duration: 0.5s;
     animation-iteration-count: 1;
-    animation-direction: alternate-reverse;
+    animation-direction: normal;
 }
 
 @keyframes oneToZero {
@@ -117,7 +135,7 @@ button {
     animation: oneToTwo;
     animation-duration: 0.5s;
     animation-iteration-count: 1;
-    animation-direction: alternate-reverse;
+    animation-direction: normal;
 }
 
 @keyframes oneToTwo {
@@ -130,7 +148,7 @@ button {
     animation: twoToOne;
     animation-duration: 0.5s;
     animation-iteration-count: 1;
-    animation-direction: alternate-reverse;
+    animation-direction: normal;
 }
 
 @keyframes twoToOne {
