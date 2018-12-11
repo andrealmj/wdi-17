@@ -27,10 +27,22 @@ When "start" button is clicked,
 6a. if the cup that is clicked has a class 'WINNER', show happy kitty playing with ball.
 6b. if the cup that is clicked does NOT have a class 'WINNER', kitty is sad. play again?
 
+
+
 --==NEXT LEVEL (DYNAMIC)==--
+user can set (i) speed
+             (ii) no. of shuffles
 
-When ball is found,
 
-"Do you want to increase the number of cups?" -> allow for user input
+SHUFFLING PART:
+e.g. swap 0 and 2
+if cup2 class === winner, then
+remove winner class from 2
+add winner class to 0
 
-"A second kitty appears! Find both her pink ball of yarn as well as OG Kitty's ball of yarn"
+else if cup 0 class === winner, then
+remove winner class from 0
+add winner class to 2
+
+
+

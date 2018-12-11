@@ -2,11 +2,11 @@ var allCups = document.querySelectorAll(".cup");
 var ball = document.querySelector(".ball");
 var allCupsArray = [0, 1, 2];
 
-var resultsArray = [];
+// var resultsArray = [];
 
-// var spotZero = document.getElementById('spotZero');
-// var spotOne = document.getElementById('spotOne');
-// var spotTwo = document.getElementById('spotTwo');
+var spotZero = document.getElementById('spotZero');
+var spotOne = document.getElementById('spotOne');
+var spotTwo = document.getElementById('spotTwo');
 
 // let childOfSpotZero = spotZero.children[0];
 // let childOfSpotOne = spotOne.children[0];
@@ -174,33 +174,39 @@ var randomSwap = function(i) {
 
 var spotZeroClick = function() {
     if (cup0.className === 'cup winner') {
-        cup0.style.bottom = '100px';
+        // document.removeChild(cup0);
+        // cup0.style.bottom = '100px';
         alert("You won! The kitty thanks you.")
 
     } else {
         cup0.style.bottom = '100px';
-        alert("Oh no! Try again next time?")
+        alert("Oh no! Kitty is still sad. Try again next time?")
     }
+    ball.classList.remove("transparent");
 }
 
 var spotOneClick = function() {
     if (cup1.className === 'cup winner') {
-        cup1.style.bottom = '100px';
+        // document.removeChild(cup1);
+        // cup1.style.bottom = '100px';
         alert("You won! The kitty thanks you.")
     } else {
         cup1.style.bottom = '100px';
-        alert("Oh no! Try again next time?")
+        alert("Oh no! Kitty is still sad. Try again next time?")
     }
+    ball.classList.remove("transparent");
 }
 
 var spotTwoClick = function() {
     if (cup2.className  === 'cup winner') {
-        cup2.style.bottom = '100px';
+        // document.removeChild(cup2);
+        // cup2.style.bottom = '100px';
         alert("You won! The kitty thanks you.")
     } else {
         cup2.style.bottom = '100px';
-        alert("Oh no! Try again next time?")
+        alert("Oh no! Kitty is still sad. Try again next time?")
     }
+    ball.classList.remove("transparent");
 }
 
 //Define startGame function
@@ -210,18 +216,24 @@ var startGame = function() {
         allCups[i].style.top = '0px';
         };
     }
+
+    var makeBallTransparent = function() {
+        ball.classList.add("transparent");
+    }
+
     for (var i=0; i < allCups.length; i++) {
         allCups[i].style.bottom = '100px';
     };
     setTimeout(moveBall, 500); //ball moves to randomly-selected cup
     setTimeout(bringCupsBackDown, 1200);
+    setTimeout(makeBallTransparent, 1200);
 
     setTimeout(randomSwap, 1800); //shuffling of cups starts & ends
     //Insert message for user: "Click on the cup which hides the ball!"
-    //Makes the cups clickable again
-    for (var i=0; i < allCups.length; i++) {
-        allCups[i].style.bottom = '100px';
-    };
+    //Make the cups clickable again
+    cup0.addEventListener("click", spotZeroClick);
+    cup1.addEventListener("click", spotOneClick);
+    cup2.addEventListener("click", spotTwoClick);
 
 };
 
@@ -231,7 +243,7 @@ var startButton = document.querySelector("button");
 startButton.addEventListener("click", startGame);
 
 //User selects winning cup
-cup0.addEventListener("click", spotZeroClick);
-cup1.addEventListener("click", spotOneClick);
-cup2.addEventListener("click", spotTwoClick);
+// cup0.addEventListener("click", spotZeroClick);
+// cup1.addEventListener("click", spotOneClick);
+// cup2.addEventListener("click", spotTwoClick);
 
