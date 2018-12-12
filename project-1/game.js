@@ -141,7 +141,7 @@ var randomSwap = function(i) {
             setTimeout(function () {
             chooseRandomSwap(); //run this code
             console.log(i)//to check if this chunk of code indeed runs 11 times
-        }, 700*i); //the code repeats itself every 700ms
+        }, 600*i); //the code repeats itself every 600ms (lower number = faster swaps)
     })(i); //for a total of i=11 times
     };
 }
@@ -313,7 +313,7 @@ var win = function() {
 
 var lose = function() {
     popup.setAttribute("class", "popup");
-    feedback.innerHTML = '<p class="lose">Oh no! Pusheen is sad.<br /><br /><img src="images/pusheensad-transparent-resized.png"><br /><br /><button id="refresh"><a onClick="window.location.reload()">PLAY AGAIN</a></button>';
+    feedback.innerHTML = '<p class="lose">Oh no! You lost. <br /><br />Pusheen is sad.<br /><img src="images/pusheensad-transparent-resized.png"><br /><br /><button id="refresh"><a onClick="window.location.reload()">PLAY AGAIN</a></button>';
 }
 
 //*deleted making ball transparent since now i'm using image
@@ -409,12 +409,14 @@ var gameInit = function() {
 
     setTimeout(randomSwap, 2600); //shuffling of cups starts & ends
 
-    setTimeout(displayMessage, 10600);//displays a message to user to click on the cup containing the donut
+    setTimeout(displayMessage, 9500);//displays a message to user to click on the cup containing the donut
 
     //Make the cups clickable again
-    cup0.addEventListener("click", spotZeroClick);
-    cup1.addEventListener("click", spotOneClick);
-    cup2.addEventListener("click", spotTwoClick);
+    setTimeout(function() {
+        cup0.addEventListener("click", spotZeroClick);
+        cup1.addEventListener("click", spotOneClick);
+        cup2.addEventListener("click", spotTwoClick);
+    }, 9500);
 
 };
 
