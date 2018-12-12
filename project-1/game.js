@@ -19,7 +19,6 @@ var cup0Img = document.querySelector("#cup0");
 var cup1Img = document.querySelector("#cup1");
 var cup2Img = document.querySelector("#cup2");
 
-
 //How/Where does the ball move?
 var moveBall = function() {
     //Select a random cup to cover the ball
@@ -161,12 +160,39 @@ var resultMsg0 = function() {
         cup0Holder.appendChild(positionedDonutImg);
 
         setTimeout(function() {
-            alert("You won! Pusheen says..");
+            console.log("You won! Pusheen says..");
         }, 500);
     } else {
+        if (cup1.classList.contains("winner")) {
+            //re-create donutImg
+            var positionedDonutImg = document.createElement("img");
+            positionedDonutImg.setAttribute("src", "images/donuttransparent.png");
+            positionedDonutImg.setAttribute("class", "imgball");
+            positionedDonutImg.style.left = '20px';
+            positionedDonutImg.style.bottom = '70px';
+            //append donutImg to cup1holder
+            var cup1Holder = document.querySelector(".cup1holder");
+            cup1Holder.appendChild(positionedDonutImg);
+        } else if (cup2.classList.contains("winner")) {
+            //re-create donutImg
+            var positionedDonutImg = document.createElement("img");
+            positionedDonutImg.setAttribute("src", "images/donuttransparent.png");
+            positionedDonutImg.setAttribute("class", "imgball");
+            positionedDonutImg.style.left = '20px';
+            positionedDonutImg.style.bottom = '70px';
+            //append donutImg to cup1holder
+            var cup2Holder = document.querySelector(".cup2holder");
+            cup2Holder.appendChild(positionedDonutImg);
+        }
+
         setTimeout(function() {
-            alert("Oh no! Pusheen is sad. Try again next time?");
-        }, 500);
+            cup1.classList.add("fadeOut");
+            cup2.classList.add("fadeOut");
+        }, 1000)
+
+        setTimeout(function() {
+            console.log("Oh no! Pusheen is sad. Try again next time?");
+        }, 3000);
 
     }
 }
@@ -184,12 +210,39 @@ var resultMsg1 = function() {
         cup1Holder.appendChild(positionedDonutImg);
 
         setTimeout(function() {
-            alert("You won! Pusheen says..");
+            console.log("You won! Pusheen says..");
         }, 500);
     } else {
+        if (cup0.classList.contains("winner")) {
+            //re-create donutImg
+            var positionedDonutImg = document.createElement("img");
+            positionedDonutImg.setAttribute("src", "images/donuttransparent.png");
+            positionedDonutImg.setAttribute("class", "imgball");
+            positionedDonutImg.style.left = '20px';
+            positionedDonutImg.style.bottom = '70px';
+            //append donutImg to cup1holder
+            var cup0Holder = document.querySelector(".cup0holder");
+            cup0Holder.appendChild(positionedDonutImg);
+        } else if (cup2.classList.contains("winner")) {
+            //re-create donutImg
+            var positionedDonutImg = document.createElement("img");
+            positionedDonutImg.setAttribute("src", "images/donuttransparent.png");
+            positionedDonutImg.setAttribute("class", "imgball");
+            positionedDonutImg.style.left = '20px';
+            positionedDonutImg.style.bottom = '70px';
+            //append donutImg to cup1holder
+            var cup2Holder = document.querySelector(".cup2holder");
+            cup2Holder.appendChild(positionedDonutImg);
+        }
+
         setTimeout(function() {
-            alert("Oh no! Pusheen is sad. Try again next time?");
-        }, 500);
+            cup0.classList.add("fadeOut");
+            cup2.classList.add("fadeOut");
+        }, 1000)
+
+        setTimeout(function() {
+            console.log("Oh no! Pusheen is sad. Try again next time?");
+        }, 3000);
 
     }
 }
@@ -207,12 +260,39 @@ var resultMsg2 = function() {
         cup2Holder.appendChild(positionedDonutImg);
 
         setTimeout(function() {
-            alert("You won! Pusheen says..");
+            console.log("You won! Pusheen says..");
         }, 500);
     } else {
+        if (cup0.classList.contains("winner")) {
+            //re-create donutImg
+            var positionedDonutImg = document.createElement("img");
+            positionedDonutImg.setAttribute("src", "images/donuttransparent.png");
+            positionedDonutImg.setAttribute("class", "imgball");
+            positionedDonutImg.style.left = '20px';
+            positionedDonutImg.style.bottom = '70px';
+            //append donutImg to cup1holder
+            var cup0Holder = document.querySelector(".cup0holder");
+            cup0Holder.appendChild(positionedDonutImg);
+        } else if (cup1.classList.contains("winner")) {
+            //re-create donutImg
+            var positionedDonutImg = document.createElement("img");
+            positionedDonutImg.setAttribute("src", "images/donuttransparent.png");
+            positionedDonutImg.setAttribute("class", "imgball");
+            positionedDonutImg.style.left = '20px';
+            positionedDonutImg.style.bottom = '70px';
+            //append donutImg to cup1holder
+            var cup1Holder = document.querySelector(".cup1holder");
+            cup1Holder.appendChild(positionedDonutImg);
+        }
+
         setTimeout(function() {
-            alert("Oh no! Pusheen is sad. Try again next time?");
-        }, 500);
+            cup0.classList.add("fadeOut");
+            cup1.classList.add("fadeOut");
+        }, 1000)
+
+        setTimeout(function() {
+            console.log("Oh no! Pusheen is sad. Try again next time?");
+        }, 3000);
 
     }
 }
@@ -220,25 +300,43 @@ var resultMsg2 = function() {
 //***CREATE POP-UPS FOR WIN/LOSE CONDITION***
 //*deleted making ball transparent since now i'm using image
 var spotZeroClick = function() {
-    cup0.classList.add("fadeOut"); //selected cup fades out
+    resultMsg0();
 
-    setTimeout(resultMsg0, 500);
+    setTimeout(function() {
+        cup0.classList.add("fadeOut"); //selected cup fades out
+
+        cup0.removeEventListener("click", spotZeroClick);
+        cup1.removeEventListener("click", spotOneClick);
+        cup2.removeEventListener("click", spotTwoClick);
+    }, 100);
 
     // ball.classList.remove("transparent");
 }
 
 var spotOneClick = function() {
-    cup1.classList.add("fadeOut"); //selected cup fades out
+    resultMsg1();
 
-    setTimeout(resultMsg1, 500);
+    setTimeout(function() {
+        cup1.classList.add("fadeOut"); //selected cup fades out
+
+        cup0.removeEventListener("click", spotZeroClick);
+        cup1.removeEventListener("click", spotOneClick);
+        cup2.removeEventListener("click", spotTwoClick);
+    }, 100);
 
     // ball.classList.remove("transparent");
 }
 
 var spotTwoClick = function() {
-    cup2.classList.add("fadeOut"); //selected cup fades out
+    resultMsg2();
 
-    setTimeout(resultMsg2, 500);
+    setTimeout(function() {
+        cup2.classList.add("fadeOut"); //selected cup fades out
+
+        cup0.removeEventListener("click", spotZeroClick);
+        cup1.removeEventListener("click", spotOneClick);
+        cup2.removeEventListener("click", spotTwoClick);
+    }, 100);
 
     // ball.classList.remove("transparent");
 }
@@ -293,14 +391,12 @@ var gameInit = function() {
 
     setTimeout(randomSwap, 2600); //shuffling of cups starts & ends
 
-    setTimeout(displayMessage, 10600);
+    setTimeout(displayMessage, 10600);//displays a message to user to click on the cup containing the donut
 
     //Make the cups clickable again
     cup0.addEventListener("click", spotZeroClick);
     cup1.addEventListener("click", spotOneClick);
     cup2.addEventListener("click", spotTwoClick);
-
-    //FIX/ADD: remove USER-SELECTED CUP onclick (to reveal whether or not they're right) + put back donutImg under correct cup (reappend)
 
 };
 
