@@ -136,7 +136,7 @@ var chooseRandomSwap = function() {
 
 //Swapping the cups randomly i = 11 times (immediately-invoked function expression)
 var randomSwap = function(i) {
-    for (let i = 0; i < 2; i++) {
+    for (let i = 0; i < 11; i++) {
         (function (i) {
             setTimeout(function () {
             chooseRandomSwap(); //run this code
@@ -308,12 +308,12 @@ var resultMsg2 = function() {
 //***CREATE POP-UPS FOR WIN/LOSE CONDITION***
 var win = function() {
     popup.setAttribute("class", "popup");
-    feedback.innerHTML = '<p class="win">You won! Pusheen says..<br /><br /><img src="images/pusheenthanks-resized.gif"><br /><br />Play again?(add the link to this file game.js again)';
+    feedback.innerHTML = '<p class="win">You won! Pusheen says..<br /><br /><img src="images/pusheenthanks-resized.gif"><br /><br /><button id="refresh"><a onClick="window.location.reload()">PLAY AGAIN</a></button>';
 }
 
 var lose = function() {
     popup.setAttribute("class", "popup");
-    feedback.innerHTML = '<p class="lose">Oh no! Pusheen is sad.<br /><br /><img src="images/pusheensad-transparent-resized.png"><br /><br />Play again?(add the link to this file game.js again)';
+    feedback.innerHTML = '<p class="lose">Oh no! Pusheen is sad.<br /><br /><img src="images/pusheensad-transparent-resized.png"><br /><br /><button id="refresh"><a onClick="window.location.reload()">PLAY AGAIN</a></button>';
 }
 
 //*deleted making ball transparent since now i'm using image
