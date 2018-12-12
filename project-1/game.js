@@ -3,7 +3,6 @@ var ball = document.querySelector(".ball");
 var donutImg = document.querySelector(".imgball");
 
 var h1 = document.querySelector("#h1game");
-var wrapper = document.querySelector("#wrapper");
 
 var allCupsArray = [0, 1, 2];
 
@@ -18,6 +17,9 @@ var cup2 = document.querySelector("#cup2");
 var cup0Img = document.querySelector("#cup0");
 var cup1Img = document.querySelector("#cup1");
 var cup2Img = document.querySelector("#cup2");
+
+var feedback = document.querySelector("#feedback");
+var popup = document.querySelector("#popup");
 
 //How/Where does the ball move?
 var moveBall = function() {
@@ -134,7 +136,7 @@ var chooseRandomSwap = function() {
 
 //Swapping the cups randomly i = 11 times (immediately-invoked function expression)
 var randomSwap = function(i) {
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < 2; i++) {
         (function (i) {
             setTimeout(function () {
             chooseRandomSwap(); //run this code
@@ -159,9 +161,10 @@ var resultMsg0 = function() {
         var cup0Holder = document.querySelector(".cup0holder");
         cup0Holder.appendChild(positionedDonutImg);
 
-        setTimeout(function() {
-            console.log("You won! Pusheen says..");
-        }, 500);
+        // setTimeout(function() {
+        //     console.log("You won! Pusheen says..");
+        // }, 500);
+        setTimeout(win, 1700);
     } else {
         if (cup1.classList.contains("winner")) {
             //re-create donutImg
@@ -190,9 +193,10 @@ var resultMsg0 = function() {
             cup2.classList.add("fadeOut");
         }, 1000)
 
-        setTimeout(function() {
-            console.log("Oh no! Pusheen is sad. Try again next time?");
-        }, 3000);
+        // setTimeout(function() {
+        //     console.log("Oh no! Pusheen is sad. Try again next time?");
+        // }, 3000);
+        setTimeout(lose, 1700);
 
     }
 }
@@ -209,9 +213,10 @@ var resultMsg1 = function() {
         var cup1Holder = document.querySelector(".cup1holder");
         cup1Holder.appendChild(positionedDonutImg);
 
-        setTimeout(function() {
-            console.log("You won! Pusheen says..");
-        }, 500);
+        // setTimeout(function() {
+        //     console.log("You won! Pusheen says..");
+        // }, 500);
+        setTimeout(win, 1700);
     } else {
         if (cup0.classList.contains("winner")) {
             //re-create donutImg
@@ -240,9 +245,10 @@ var resultMsg1 = function() {
             cup2.classList.add("fadeOut");
         }, 1000)
 
-        setTimeout(function() {
-            console.log("Oh no! Pusheen is sad. Try again next time?");
-        }, 3000);
+        // setTimeout(function() {
+        //     console.log("Oh no! Pusheen is sad. Try again next time?");
+        // }, 3000);
+        setTimeout(lose, 1700);
 
     }
 }
@@ -259,9 +265,10 @@ var resultMsg2 = function() {
         var cup2Holder = document.querySelector(".cup2holder");
         cup2Holder.appendChild(positionedDonutImg);
 
-        setTimeout(function() {
-            console.log("You won! Pusheen says..");
-        }, 500);
+        // setTimeout(function() {
+        //     console.log("You won! Pusheen says..");
+        // }, 500);
+        setTimeout(win, 1700);
     } else {
         if (cup0.classList.contains("winner")) {
             //re-create donutImg
@@ -290,14 +297,25 @@ var resultMsg2 = function() {
             cup1.classList.add("fadeOut");
         }, 1000)
 
-        setTimeout(function() {
-            console.log("Oh no! Pusheen is sad. Try again next time?");
-        }, 3000);
+        // setTimeout(function() {
+        //     console.log("Oh no! Pusheen is sad. Try again next time?");
+        // }, 3000);
+        setTimeout(lose, 1700);
 
     }
 }
 
 //***CREATE POP-UPS FOR WIN/LOSE CONDITION***
+var win = function() {
+    popup.setAttribute("class", "popup");
+    feedback.innerHTML = '<p class="win">You won! Pusheen says..<br /><br /><img src="images/pusheenthanks-resized.gif"><br /><br />Play again?(add the link to this file game.js again)';
+}
+
+var lose = function() {
+    popup.setAttribute("class", "popup");
+    feedback.innerHTML = '<p class="lose">Oh no! Pusheen is sad.<br /><br /><img src="images/pusheensad-transparent-resized.png"><br /><br />Play again?(add the link to this file game.js again)';
+}
+
 //*deleted making ball transparent since now i'm using image
 var spotZeroClick = function() {
     resultMsg0();
