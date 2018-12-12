@@ -146,10 +146,18 @@ var randomSwap = function(i) {
 
 var removeCupImg = function() {
     var cupImg = document.querySelectorAll(".cup");
-    for (var i=1; i < cupImg.length; i+=2) {
+    for (var i = 1; i < cupImg.length + 1; i = i + 2) {
             cupImg[i].style.bottom = '50px';
         };
 } //********CHECK TIHS***
+
+var resultMsg = function() {
+    if (cup0.classList.contains("winner")) {
+        alert("You won! Pusheen says..")
+    } else {
+        alert("Oh no! Pusheen is sad. Try again next time?")
+    }
+}
 
 //***CREATE POP-UPS FOR WIN/LOSE CONDITION***
 //*delete making ball transparent since now i'm using image
@@ -157,11 +165,7 @@ var spotZeroClick = function() {
     removeCupImg();//MAKE THE CUP DISAPPEAR
     console.log("made cup0 transparent");
 
-    if (cup0.classList.contains("winner")) {
-        alert("You won! Pusheen says..")
-    } else {
-        alert("Oh no! Pusheen is sad. Try again next time?")
-    }
+    setTimeout(resultMsg, 500);
 
     // ball.classList.remove("transparent");
 }
@@ -170,11 +174,7 @@ var spotOneClick = function() {
     removeCupImg();//MAKE THE CUP DISAPPEAR
     console.log("made cup1 transparent");
 
-    if (cup1.classList.contains("winner")) {
-        alert("You won! Pusheen says..")
-    } else {
-        alert("Oh no! Pusheen is sad. Try again next time?")
-    }
+    setTimeout(resultMsg, 500);
 
     // ball.classList.remove("transparent");
 }
@@ -183,11 +183,7 @@ var spotTwoClick = function() {
     removeCupImg();//MAKE THE CUP DISAPPEAR
     console.log("made cup2 transparent");
 
-    if (cup2.classList.contains("winner")) {
-        alert("You won! Pusheen says..")
-    } else {
-        alert("Oh no! Pusheen is sad. Try again next time?")
-    }
+    setTimeout(resultMsg, 500);
 
     // ball.classList.remove("transparent");
 }
@@ -213,7 +209,7 @@ var gameInit = function() {
     var displayMessage = function() {
         var clickOnTheCupMsg = document.createTextNode("Click on the cup containing the donut!");
         h1.replaceChild(clickOnTheCupMsg, h1.childNodes[0]);
-        //MAKE THE TEXT BLINK FOR THE FIRST FEW SECONDS IT APPEARS
+        setTimeout(addBlink, 400); //MAKE THE (new) h1 TEXT BLINK FOR THE FIRST FEW SECONDS after IT APPEARS
     }
 
     var bringCupsUp = function() {
@@ -222,7 +218,17 @@ var gameInit = function() {
         };
     }
 
-    //MAKE THE h1 TEXT BLINK FOR THE FIRST FEW SECONDS IT APPEARS (i.e. first thing tt happens when the pg loads - no setTimeout necessary)
+    var removeBlink = function() {
+        h1.classList.remove('blink');
+    }
+
+    var addBlink = function() {
+        h1.classList.add('blink');
+    }
+
+    //MAKE THE h1 TEXT BLINK FOR THE FIRST FEW SECONDS IT APPEARS
+    addBlink();
+    setTimeout(removeBlink, 2000)
 
     setTimeout(bringCupsUp, 800);
     setTimeout(moveBall, 1300); //ball moves to randomly-selected cup
@@ -244,6 +250,10 @@ var gameInit = function() {
 };
 
 gameInit();
+
+
+
+
 //-------------------------------------------------//
 
 
@@ -259,8 +269,3 @@ gameInit();
 
 
 //------------------------------------------------//
-
-
-//onclick startbutton, remove startScreen.parentNode
-//(then an EMPTY PAGE remains)
-//THEN load all yr game elements
