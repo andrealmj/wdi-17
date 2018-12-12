@@ -3,16 +3,21 @@ var ball = document.querySelector(".ball");
 var donutImg = document.querySelector(".imgball");
 
 var h1 = document.querySelector("#h1game");
+var wrapper = document.querySelector("#wrapper");
 
 var allCupsArray = [0, 1, 2];
 
-var spotZero = document.getElementById('spotZero');
-var spotOne = document.getElementById('spotOne');
-var spotTwo = document.getElementById('spotTwo');
+var spotZero = document.querySelector("#spotZero");
+var spotOne = document.querySelector("#spotOne");
+var spotTwo = document.querySelector("#spotTwo");
 
 var cup0 = document.querySelector("#cup0");
 var cup1 = document.querySelector("#cup1");
 var cup2 = document.querySelector("#cup2");
+
+var cup0Img = document.querySelector("#cup0");
+var cup1Img = document.querySelector("#cup1");
+var cup2Img = document.querySelector("#cup2");
 
 
 //How/Where does the ball move?
@@ -128,9 +133,9 @@ var chooseRandomSwap = function() {
     }
 }
 
-//Swapping the cups randomly i = 15 times (immediately-invoked function expression)
+//Swapping the cups randomly i = 11 times (immediately-invoked function expression)
 var randomSwap = function(i) {
-    for (let i = 0; i < 11; i++) {
+    for (let i = 0; i < 3; i++) {
         (function (i) {
             setTimeout(function () {
             chooseRandomSwap(); //run this code
@@ -143,47 +148,97 @@ var randomSwap = function(i) {
 
 //---------------------------------------------------//
 //What happens when each spot is clicked after the shuffling is complete:
-
-var removeCupImg = function() {
-    var cupImg = document.querySelectorAll(".cup");
-    for (var i = 1; i < cupImg.length + 1; i = i + 2) {
-            cupImg[i].style.bottom = '50px';
-        };
-} //********CHECK TIHS***
-
-var resultMsg = function() {
+var resultMsg0 = function() {
     if (cup0.classList.contains("winner")) {
-        alert("You won! Pusheen says..")
+        //re-create donutImg
+        var positionedDonutImg = document.createElement("img");
+        positionedDonutImg.setAttribute("src", "images/donuttransparent.png");
+        positionedDonutImg.setAttribute("class", "imgball");
+        positionedDonutImg.style.left = '20px';
+        positionedDonutImg.style.bottom = '70px';
+        //append donutImg to cup0holder
+        var cup0Holder = document.querySelector(".cup0holder");
+        cup0Holder.appendChild(positionedDonutImg);
+
+        setTimeout(function() {
+            alert("You won! Pusheen says..");
+        }, 500);
     } else {
-        alert("Oh no! Pusheen is sad. Try again next time?")
+        setTimeout(function() {
+            alert("Oh no! Pusheen is sad. Try again next time?");
+        }, 500);
+
+    }
+}
+
+var resultMsg1 = function() {
+    if (cup1.classList.contains("winner")) {
+        //re-create donutImg
+        var positionedDonutImg = document.createElement("img");
+        positionedDonutImg.setAttribute("src", "images/donuttransparent.png");
+        positionedDonutImg.setAttribute("class", "imgball");
+        positionedDonutImg.style.left = '20px';
+        positionedDonutImg.style.bottom = '70px';
+        //append donutImg to cup1holder
+        var cup1Holder = document.querySelector(".cup1holder");
+        cup1Holder.appendChild(positionedDonutImg);
+
+        setTimeout(function() {
+            alert("You won! Pusheen says..");
+        }, 500);
+    } else {
+        setTimeout(function() {
+            alert("Oh no! Pusheen is sad. Try again next time?");
+        }, 500);
+
+    }
+}
+
+var resultMsg2 = function() {
+    if (cup2.classList.contains("winner")) {
+        //re-create donutImg
+        var positionedDonutImg = document.createElement("img");
+        positionedDonutImg.setAttribute("src", "images/donuttransparent.png");
+        positionedDonutImg.setAttribute("class", "imgball");
+        positionedDonutImg.style.left = '20px';
+        positionedDonutImg.style.bottom = '70px';
+        //append donutImg to cup2holder
+        var cup2Holder = document.querySelector(".cup2holder");
+        cup2Holder.appendChild(positionedDonutImg);
+
+        setTimeout(function() {
+            alert("You won! Pusheen says..");
+        }, 500);
+    } else {
+        setTimeout(function() {
+            alert("Oh no! Pusheen is sad. Try again next time?");
+        }, 500);
+
     }
 }
 
 //***CREATE POP-UPS FOR WIN/LOSE CONDITION***
-//*delete making ball transparent since now i'm using image
+//*deleted making ball transparent since now i'm using image
 var spotZeroClick = function() {
-    removeCupImg();//MAKE THE CUP DISAPPEAR
-    console.log("made cup0 transparent");
+    cup0.classList.add("fadeOut"); //selected cup fades out
 
-    setTimeout(resultMsg, 500);
+    setTimeout(resultMsg0, 500);
 
     // ball.classList.remove("transparent");
 }
 
 var spotOneClick = function() {
-    removeCupImg();//MAKE THE CUP DISAPPEAR
-    console.log("made cup1 transparent");
+    cup1.classList.add("fadeOut"); //selected cup fades out
 
-    setTimeout(resultMsg, 500);
+    setTimeout(resultMsg1, 500);
 
     // ball.classList.remove("transparent");
 }
 
 var spotTwoClick = function() {
-    removeCupImg();//MAKE THE CUP DISAPPEAR
-    console.log("made cup2 transparent");
+    cup2.classList.add("fadeOut"); //selected cup fades out
 
-    setTimeout(resultMsg, 500);
+    setTimeout(resultMsg2, 500);
 
     // ball.classList.remove("transparent");
 }

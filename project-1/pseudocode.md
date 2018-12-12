@@ -44,5 +44,9 @@ else if cup 0 class === winner, then
 remove winner class from 0
 add winner class to 2
 
+=========================
+reveal result
 
+if 'winner', replace cup img w donut img
+else, cup fadeOut
 

@@ -85,7 +85,7 @@ p {
     margin-left: 40px;
 }
 
-.cup {
+.cup, .imgcup {
     width: 180px;
     /*border-bottom: 300px solid #ECE9F2;
     border-left: 30px solid transparent;
@@ -112,7 +112,7 @@ p {
     bottom: 100px;
 }
 
-#cup0, #cup1, #cup2 {
+#cup0, #cup1, #cup2, .cup0holder, .cup1holder, .cup2holder {
     margin: 0 20px;
 }
 
@@ -128,10 +128,8 @@ button {
 }
 
 .swap2With0 {
-    animation: twoToZero;
-    animation-duration: 1s;
-    animation-iteration-count: 1;
-    animation-direction: normal;
+    animation: twoToZero 1s;
+    animation-fill-mode: forwards;
 }
 
 @keyframes twoToZero {
@@ -141,10 +139,8 @@ button {
 }
 
 .swap0With2 {
-    animation: zeroToTwo;
-    animation-duration: 1s;
-    animation-iteration-count: 1;
-    animation-direction: normal;
+    animation: zeroToTwo 1s;
+    animation-fill-mode: forwards;
 }
 
 @keyframes zeroToTwo {
@@ -154,10 +150,8 @@ button {
 }
 
 .swap0With1 {
-    animation: zeroToOne;
-    animation-duration: 1s;
-    animation-iteration-count: 1;
-    animation-direction: normal;
+    animation: zeroToOne 1s;
+    animation-fill-mode: forwards;
 }
 
 @keyframes zeroToOne {
@@ -167,10 +161,8 @@ button {
 }
 
 .swap1With0 {
-    animation: oneToZero;
-    animation-duration: 1s;
-    animation-iteration-count: 1;
-    animation-direction: normal;
+    animation: oneToZero 1s;
+    animation-fill-mode: forwards;
 }
 
 @keyframes oneToZero {
@@ -180,10 +172,8 @@ button {
 }
 
 .swap1With2 {
-    animation: oneToTwo;
-    animation-duration: 1s;
-    animation-iteration-count: 1;
-    animation-direction: normal;
+    animation: oneToTwo 1s;
+    animation-fill-mode: forwards;
 }
 
 @keyframes oneToTwo {
@@ -193,10 +183,8 @@ button {
 }
 
 .swap2With1 {
-    animation: twoToOne;
-    animation-duration: 1s;
-    animation-iteration-count: 1;
-    animation-direction: normal;
+    animation: twoToOne 1s;
+    animation-fill-mode: forwards;
 }
 
 @keyframes twoToOne {
@@ -210,7 +198,8 @@ button {
 }
 
 .blink {
-    animation: blink 0.5s 4;}
+    animation: blink 0.5s 4;
+}
 
 @keyframes blink {
     0% {opacity: 0}
@@ -223,4 +212,15 @@ button {
     position: relative;
     margin-top: -140px;
     margin-left: -300px;
+}
+
+.fadeOut {
+    animation: fadeOut 0.5s;
+    animation-fill-mode: forwards;
+}
+
+
+@keyframes fadeOut {
+   0%   {opacity: 1;}
+   100% {opacity: 0;}
 }
