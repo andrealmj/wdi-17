@@ -138,7 +138,6 @@ button {
 
 @keyframes twoToZero {
     0%   {right: 0px;}
-    50%  {right: 200px;}
     100% {right: 400px;}
 }
 
@@ -149,7 +148,6 @@ button {
 
 @keyframes zeroToTwo {
     0%   {left: 0px;}
-    50%  {left: 200px;}
     100% {left: 400px;}
 }
 
@@ -160,7 +158,6 @@ button {
 
 @keyframes zeroToOne {
     0%   {left: 0;}
-    50%  {left: 100px;}
     100% {left: 200px;}
 }
 
@@ -171,7 +168,6 @@ button {
 
 @keyframes oneToZero {
     0%   {right: 0px;}
-    50%  {right: 100px;}
     100% {right: 300px;}
 }
 
@@ -182,7 +178,6 @@ button {
 
 @keyframes oneToTwo {
     0%   {left: 0;}
-    50%  {left: 100px;}
     100% {left: 200px;}
 }
 
@@ -193,7 +188,6 @@ button {
 
 @keyframes twoToOne {
     0%   {right: 0px;}
-    50%  {right: 100px;}
     100% {right: 200px;}
 }
 
